@@ -2,7 +2,7 @@ using System;
 
 using UnityEngine;
 
-public class CharacterHealth : CharacterPart
+public abstract class CharacterHealth : CharacterPart
 {
 
     // Константа с ключом смерти персонажа
@@ -23,6 +23,13 @@ public class CharacterHealth : CharacterPart
     // Событие при смерти
     public Action OnDie;
 
+    // Событие при гибели персонажа
+    // Со ссылкой на метод с параметром типа CharacterHealth
+    public Action<CharacterHealth> OnDieWithObject;
+
+    // Событие при изменении очков здоровья
+    public Action OnAddHealthPoints;
+
     public void AddHealthPoints(int value)
     {
         // Если персонаж мёртв
@@ -33,6 +40,9 @@ public class CharacterHealth : CharacterPart
         }
         // Увеличиваем значение здоровья на value
         _healthPoints += value;
+
+        // НОВОЕ: Вызываем событие OnAddHealthPoints
+         OnAddHealthPoints?.Invoke();
 
         // Если здоровье достигло нуля
         if (_healthPoints <= 0)
@@ -64,5 +74,19 @@ public class CharacterHealth : CharacterPart
 
         // Вызываем событие OnDie
         OnDie?.Invoke();
+
+        OnDieWithObject?.Invoke(this);
+    }
+
+    public int GetStartHealthPoints()
+    {
+        // Возвращаем стартовое значение здоровья
+        return _startHealthPoints;
+    }
+
+    public int GetHealthPoints()
+    {
+        // Возвращаем текущее значение здоровья
+        return _healthPoints;
     }
 }

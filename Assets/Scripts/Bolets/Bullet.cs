@@ -13,6 +13,8 @@ public class Bullet : MonoBehaviour
     // Время отображения пули на экране
     [SerializeField] private float _lifeTime = 2f;
 
+    public int damage = 10;
+
     private void Update()
     {
         // Уменьшаем время отображения пули на экране
@@ -83,7 +85,7 @@ public class Bullet : MonoBehaviour
         {
             // Задаём урон от пули; временно поставим его здесь
             // Позже будем задавать урон извне этого метода
-            int damage = 10;
+            damage = 10;
 
             // Уменьшаем количество здоровья персонажа
             hittedHealth.AddHealthPoints(-damage);
