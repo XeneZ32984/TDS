@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPhysicBounds : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+// Задали наследование от CharacterPhysicBounds
+public class EnemyPhysicBounds : CharacterPhysicBounds
+{
+    // Коллайдер врага
+    private Collider _bodyCollider;
+
+    // Инициализируем переменные
+    protected override void OnInit()
     {
-        
+        // Присваиваем _bodyCollider компонент Collider из дочерних объектов
+        _bodyCollider = GetComponentInChildren<Collider>();
+    }
+    // Останавливаем врага
+    protected override void OnStop()
+    {
+        // Выключаем коллайдер
+        _bodyCollider.enabled = false;
     }
 }
+

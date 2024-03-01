@@ -63,6 +63,8 @@ public class Bullet : MonoBehaviour
 
         CheckCharacterHit(hit);
 
+        CheckPhysicObjectHit(hit);
+
         // Пуля пропадает с экрана
         DestroyBullet();
     }
@@ -89,6 +91,21 @@ public class Bullet : MonoBehaviour
 
             // Уменьшаем количество здоровья персонажа
             hittedHealth.AddHealthPoints(-damage);
+        }
+    }
+
+    private void CheckPhysicObjectHit(RaycastHit hit)
+    {
+        // Создаём переменную для объекта воздействия
+        IPhysicHittable hittedPhysicObject = hit.collider.GetComponentInParent<IPhysicHittable>();
+
+        // Если объект не пустой (существует)
+        if (hittedPhysicObject != null)
+        {
+            // Вызываем у него метод попадания Hit()
+            // Передаём направление пули, умноженное на её скорость
+            // А также точку, в которую попала пуля на объекте
+            hittedPhysicObject.Hit(transform.forward * _speed, hit.point);
         }
     }
 }

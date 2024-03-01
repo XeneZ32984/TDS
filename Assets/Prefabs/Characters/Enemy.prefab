@@ -2314,6 +2314,9 @@ GameObject:
   - component: {fileID: 5200428350228996912}
   - component: {fileID: 8371451031906280942}
   - component: {fileID: 2848679771924150764}
+  - component: {fileID: 8705875285173446934}
+  - component: {fileID: 2832456411666505390}
+  - component: {fileID: 5461075937708347406}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Player
@@ -2430,7 +2433,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01551aaa2566e84ab59a7a4f391869f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startHealthPoints: 100
+  _startHealthPoints: 1
+--- !u!114 &8705875285173446934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229238777843905393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac08050190ca9541b0a0646b46d1b30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _aimingSpeed: 10
+  _aimDeltaPosition: {x: 0, y: 1, z: 0}
+  _aimingRange: 20
+--- !u!114 &2832456411666505390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229238777843905393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a027e7dff16cee43b6349fb07d76070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletPrefab: {fileID: 6046468474713550415, guid: 46fcf6245c0a2be4e8f52ca7fbb090d0,
+    type: 3}
+  _bulletDelay: 0.34
+  _shootingRange: 50
+  _bulletsInRow: 15
+  _reloadingDuration: 6
+--- !u!54 &5461075937708347406
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229238777843905393}
+  serializedVersion: 4
+  m_Mass: 6.5
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5278157940342696964
 GameObject:
   m_ObjectHideFlags: 0

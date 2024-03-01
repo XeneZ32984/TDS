@@ -41,6 +41,9 @@ public abstract class CharacterHealth : CharacterPart
         // Увеличиваем значение здоровья на value
         _healthPoints += value;
 
+        // НОВОЕ: Проверяем, что здоровье в пределах от нуля до заданного изначально
+        _healthPoints = Mathf.Clamp(_healthPoints, 0, _startHealthPoints);
+
         // НОВОЕ: Вызываем событие OnAddHealthPoints
          OnAddHealthPoints?.Invoke();
 
