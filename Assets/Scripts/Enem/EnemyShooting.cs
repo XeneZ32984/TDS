@@ -43,6 +43,9 @@ public class EnemyShooting : CharacterShooting
 
         // Перезагружаем оружие
         Reload();
+
+        base.OnInit();
+
     }
 
     private void Reload()
@@ -71,6 +74,8 @@ public class EnemyShooting : CharacterShooting
 
         // Перезаряжаем оружие
         Reloading();
+
+        DamageBonusing();
     }
 
     private void Shooting()
@@ -115,7 +120,7 @@ public class EnemyShooting : CharacterShooting
         _bulletTimer = 0;
 
         // Делаем новую пулю
-        SpawnBullet();
+        SpawnBullet(_bulletPrefab, _bulletSpawnPoint);
 
         // Уменьшаем количество пуль в обойме
         _currentBulletsInRow--;

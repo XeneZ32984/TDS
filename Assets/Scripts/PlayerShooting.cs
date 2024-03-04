@@ -23,6 +23,8 @@ public class PlayerShooting : CharacterShooting
         
         // Обнуляем таймер выстрела
         _bulletTimer = 0;
+
+        base.OnInit();
     }
 
     private void Update()
@@ -35,6 +37,7 @@ public class PlayerShooting : CharacterShooting
         }
 
         Shooting();
+        DamageBonusing();
     }
 
     private void Shooting()
@@ -53,7 +56,7 @@ public class PlayerShooting : CharacterShooting
                 _bulletTimer = 0;
 
                 // Делаем новую пулю
-                SpawnBullet();
+                SpawnBullet(_bulletPrefab, _bulletSpawnPoint);
             }
         }
     }

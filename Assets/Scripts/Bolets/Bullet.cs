@@ -15,6 +15,8 @@ public class Bullet : MonoBehaviour
 
     public int damage = 10;
 
+    private int _damage;
+
     private void Update()
     {
         // Уменьшаем время отображения пули на экране
@@ -46,7 +48,11 @@ public class Bullet : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, _speed * Time.deltaTime))
         {
             // Обрабатываем попадание
-            Hit(hit);
+            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, _speed * Time.deltaTime)
+                && !hit.collider.isTrigger)
+            {
+                Hit(hit);
+            }
         }
     }
 
@@ -77,20 +83,14 @@ public class Bullet : MonoBehaviour
 
     private void CheckCharacterHit(RaycastHit hit)
     {
-        // Получаем компонент CharacterHealth
-        // У персонажа, в которого попала пуля
         CharacterHealth hittedHealth = hit.collider.GetComponentInChildren<CharacterHealth>();
 
-        // Если такой компонент есть
-        // То есть пуля попала в персонажа
         if (hittedHealth)
         {
-            // Задаём урон от пули; временно поставим его здесь
-            // Позже будем задавать урон извне этого метода
-            damage = 10;
+            // НОВОЕ: Убрали здесь int damage = 10;
 
-            // Уменьшаем количество здоровья персонажа
-            hittedHealth.AddHealthPoints(-damage);
+            // НОВОЕ: Заменили damage на _damage
+            hittedHealth.AddHealthPoints(-_damage);
         }
     }
 
@@ -105,7 +105,13 @@ public class Bullet : MonoBehaviour
             // Вызываем у него метод попадания Hit()
             // Передаём направление пули, умноженное на её скорость
             // А также точку, в которую попала пуля на объекте
-            hittedPhysicObject.Hit(transform.forward * _speed, hit.point);
+            hittedPhysicObject.Hit(transform.forward * _speed * 5, hit.point);
         }
+    }
+
+    public void SetDamage(int value)
+    {
+        // Делаем урон равным value
+        _damage = value;
     }
 }

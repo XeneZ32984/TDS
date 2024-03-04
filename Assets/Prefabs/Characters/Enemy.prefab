@@ -2381,10 +2381,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
-  m_Height: 1.6
+  m_Radius: 0.5
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0.8, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3099305619485648309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2463,9 +2463,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 6046468474713550415, guid: 46fcf6245c0a2be4e8f52ca7fbb090d0,
     type: 3}
-  _bulletDelay: 0.34
+  _bulletDelay: 0.13
   _shootingRange: 50
-  _bulletsInRow: 15
+  _bulletsInRow: 23
   _reloadingDuration: 6
 --- !u!54 &5461075937708347406
 Rigidbody:
