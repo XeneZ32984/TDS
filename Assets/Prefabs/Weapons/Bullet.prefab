@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitPrefab: {fileID: 6597570747687438593, guid: b4f3266f343f36b4f90f669bba00e59d,
     type: 3}
-  _speed: 17.6
+  _speed: 17.47
   _lifeTime: 20
   damage: 54
 --- !u!1 &8652050062009025290

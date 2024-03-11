@@ -2461,12 +2461,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a027e7dff16cee43b6349fb07d76070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weapon: {fileID: 5533520792230569982}
   _bulletPrefab: {fileID: 6046468474713550415, guid: 46fcf6245c0a2be4e8f52ca7fbb090d0,
     type: 3}
-  _bulletDelay: 0.13
+  _bulletDelay: 0.28
   _shootingRange: 50
-  _bulletsInRow: 23
-  _reloadingDuration: 6
+  _bulletsInRow: 3
+  _reloadingDuration: 5.9
 --- !u!54 &5461075937708347406
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4359,6 +4360,18 @@ PrefabInstance:
       addedObject: {fileID: 1772393512551122423}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7980c3518c5211d44a794894a1dc323d, type: 3}
+--- !u!114 &5533520792230569982 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4712182131263630443, guid: 7980c3518c5211d44a794894a1dc323d,
+    type: 3}
+  m_PrefabInstance: {fileID: 985737983175773077}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 109006096f33f24468de2fea4dbc4880, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6284880364545119134 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6527521384993085451, guid: 7980c3518c5211d44a794894a1dc323d,

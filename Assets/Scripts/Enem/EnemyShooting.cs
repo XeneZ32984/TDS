@@ -70,7 +70,7 @@ public class EnemyShooting : CharacterShooting
         _bulletTimer += Time.deltaTime;
 
         // Готовимся к стрельбе
-        Shooting();
+        //Shooting();
 
         // Перезаряжаем оружие
         Reloading();

@@ -17,4 +17,9 @@ public abstract class Weapon : MonoBehaviour
             return _damage;
         }
     } 
+    public void SetActive(bool value)
+    {
+        // Меняем активность объекта
+        gameObject.SetActive(value);
+    }
 }

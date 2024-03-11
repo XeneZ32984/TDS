@@ -43,25 +43,19 @@ public class Bullet : MonoBehaviour
     }
 
     private void CheckHit()
-    {
-        // Если пуля столкнулась с чем-то
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, _speed * Time.deltaTime))
-        {
-            // Обрабатываем попадание
-            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, _speed * Time.deltaTime)
-                && !hit.collider.isTrigger)
+    {     // Обрабатываем попадание
+            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, _speed * Time.deltaTime) && !hit.collider.isTrigger)
             {
                 Hit(hit);
             }
-        }
     }
+    
 
     private void Move()
     {
         // Меняем позицию пули через изменения скорости и времени
         transform.position += transform.forward * _speed * Time.deltaTime;
     }
-
     private void Hit(RaycastHit hit)
     {
         // Создаём эффект попадания на месте столкновения пули
@@ -108,7 +102,6 @@ public class Bullet : MonoBehaviour
             hittedPhysicObject.Hit(transform.forward * _speed * 5, hit.point);
         }
     }
-
     public void SetDamage(int value)
     {
         // Делаем урон равным value

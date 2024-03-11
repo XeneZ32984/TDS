@@ -60,11 +60,4 @@ public class PlayerShooting : CharacterShooting
             }
         }
     }
-
-    private void SpawnBullet()
-    {
-        // Создаём экземпляр префаба пули
-        // В точке появления с теми же параметрами
-        Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
-    }
 }
